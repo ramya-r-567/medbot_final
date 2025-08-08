@@ -2,15 +2,7 @@
 import streamlit as st
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-import base64
-import joblib
-import numpy as np
-import re
-from sklearn.feature_extraction.text import CountVectorizer
-from deep_translator import GoogleTranslator
-
-
-st.markdown("""
+    st.markdown("""
 <div class="background-icons">
   <img src="https://img.icons8.com/ios-filled/100/heart-with-pulse.png">
   <img src="https://img.icons8.com/ios-filled/100/stethoscope.png">
@@ -22,6 +14,15 @@ st.markdown("""
   <img src="https://img.icons8.com/ios-filled/100/thermometer.png">
 </div>
 """, unsafe_allow_html=True)
+import base64
+import joblib
+import numpy as np
+import re
+from sklearn.feature_extraction.text import CountVectorizer
+from deep_translator import GoogleTranslator
+
+
+
 
 # Load model and symptoms
 model = joblib.load("final_medbot_model.pkl")

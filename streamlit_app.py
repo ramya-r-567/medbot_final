@@ -113,9 +113,7 @@ solutions = {
     "Secondary Headache":"💊 Take prescribed pain reliviers.🌡️ Temperature Therapy(Cold Pack or Warm Compress).",
     "Cluster Headache":"🫁 Breathing Exercises.❄️ Cold Compress. Avoid Triggers.",
     "Dehydration":"🧂Drink More Water.🥤Avoid Dehydrating Beverages. Eat Water-Rich Foods.".
-   
-    
-}
+   }
 
 vectorizer = CountVectorizer(vocabulary=symptoms)
 

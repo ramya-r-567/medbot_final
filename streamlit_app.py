@@ -1,11 +1,94 @@
-
 import streamlit as st
-# Load external CSS
-with open("style.css") as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+import base64
+import joblib
+import numpy as np
+import re
+from sklearn.feature_extraction.text import CountVectorizer
+from deep_translator import GoogleTranslator
 
-# Add floating blurred medical icons to background
+
+# Load model and symptoms
+model = joblib.load("final_medbot_model.pkl")
+symptoms = joblib.load("final_symptom_list.pkl")
+
+# CSS styling (✅ FIXED)
 st.markdown("""
+<style>
+body {
+    background-color: #cce5ff;  /* Light blue solid background */
+    background-image: none;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.stApp {
+    background: transparent;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.floating-icon {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.floating-icon:nth-child(1) { top: 10%; left: 5%; }
+.floating-icon:nth-child(2) { top: 30%; right: 10%; }
+.floating-icon:nth-child(3) { bottom: 20%; left: 15%; }
+.floating-icon:nth-child(4) { bottom: 10%; right: 5%; }
+.floating-icon:nth-child(5) { top: 50%; left: 50%; }
+
+.background-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background-icons img {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    opacity: 0.06;
+    filter: blur(1px);
+}
+
+.background-icons img:nth-child(1) { top: 10%; left: 5%; }
+.background-icons img:nth-child(2) { top: 30%; right: 10%; }
+.background-icons img:nth-child(3) { bottom: 20%; left: 15%; }
+.background-icons img:nth-child(4) { bottom: 10%; right: 5%; }
+.background-icons img:nth-child(5) { top: 50%; left: 50%; }
+.background-icons img:nth-child(6) { top: 40%; left: 80%; }
+.background-icons img:nth-child(7) { bottom: 40%; right: 30%; }
+.background-icons img:nth-child(8) { top: 20%; right: 40%; }
+
+.glass-box {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    margin-top: 20px;
+    color: #ffffff;
+}
+</style>
+
 <div class="background-icons">
   <img src="https://img.icons8.com/ios-filled/100/heart-with-pulse.png">
   <img src="https://img.icons8.com/ios-filled/100/stethoscope.png">
@@ -17,19 +100,7 @@ st.markdown("""
   <img src="https://img.icons8.com/ios-filled/100/thermometer.png">
 </div>
 """, unsafe_allow_html=True)
-import base64
-import joblib
-import numpy as np
-import re
-from sklearn.feature_extraction.text import CountVectorizer
-from deep_translator import GoogleTranslator
 
-
-
-
-# Load model and symptoms
-model = joblib.load("final_medbot_model.pkl")
-symptoms = joblib.load("final_symptom_list.pkl")
 
 # Dictionary mapping diseases to simple solutions
 solutions = {

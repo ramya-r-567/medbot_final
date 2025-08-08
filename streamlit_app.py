@@ -37,6 +37,8 @@ h1 {
     padding-top: 10px;
 }
 
+<style>
+/* ... your existing CSS stays ... */
 .floating-icon {
     position: fixed;
     width: 50px;
@@ -50,6 +52,21 @@ h1 {
 .floating-icon:nth-child(3) { bottom: 20%; left: 15%; }
 .floating-icon:nth-child(4) { bottom: 10%; right: 5%; }
 .floating-icon:nth-child(5) { top: 50%; left: 50%; }
+.floating-icon:nth-child(6) { top: 40%; left: 80%; }
+.floating-icon:nth-child(7) { bottom: 40%; right: 30%; }
+.floating-icon:nth-child(8) { top: 20%; right: 40%; }
+</style>
+
+<!-- Floating Icons -->
+<img src="https://img.icons8.com/ios-filled/100/heart-with-pulse.png" class="floating-icon">
+<img src="https://img.icons8.com/ios-filled/100/stethoscope.png" class="floating-icon">
+<img src="https://img.icons8.com/ios-filled/100/pill.png" class="floating-icon">
+<img src="https://img.icons8.com/ios-filled/100/medical-doctor.png" class="floating-icon">
+<img src="https://img.icons8.com/ios-filled/100/first-aid-kit.png" class="floating-icon">
+<img src="https://img.icons8.com/ios-filled/100/syringe.png" class="floating-icon">
+<img src="https://img.icons8.com/ios-filled/100/dna.png" class="floating-icon">
+<img src="https://img.icons8.com/ios-filled/100/thermometer.png" class="floating-icon">
+
 
 .glass-box {
     background: rgba(255, 255, 255, 0.15);
@@ -183,5 +200,4 @@ if user_input.strip():
     else:
         st.warning(no_solution_text)
 else:
-    st.markdown("<div class= 'glass-box'>", unsafe_allow_html=True)
     st.info(empty_input_info)

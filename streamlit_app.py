@@ -37,8 +37,6 @@ h1 {
     padding-top: 10px;
 }
 
-<style>
-/* ... your existing CSS stays ... */
 .floating-icon {
     position: fixed;
     width: 50px;
@@ -52,21 +50,6 @@ h1 {
 .floating-icon:nth-child(3) { bottom: 20%; left: 15%; }
 .floating-icon:nth-child(4) { bottom: 10%; right: 5%; }
 .floating-icon:nth-child(5) { top: 50%; left: 50%; }
-.floating-icon:nth-child(6) { top: 40%; left: 80%; }
-.floating-icon:nth-child(7) { bottom: 40%; right: 30%; }
-.floating-icon:nth-child(8) { top: 20%; right: 40%; }
-</style>
-
-<!-- Floating Icons -->
-<img src="https://img.icons8.com/ios-filled/100/heart-with-pulse.png" class="floating-icon">
-<img src="https://img.icons8.com/ios-filled/100/stethoscope.png" class="floating-icon">
-<img src="https://img.icons8.com/ios-filled/100/pill.png" class="floating-icon">
-<img src="https://img.icons8.com/ios-filled/100/medical-doctor.png" class="floating-icon">
-<img src="https://img.icons8.com/ios-filled/100/first-aid-kit.png" class="floating-icon">
-<img src="https://img.icons8.com/ios-filled/100/syringe.png" class="floating-icon">
-<img src="https://img.icons8.com/ios-filled/100/dna.png" class="floating-icon">
-<img src="https://img.icons8.com/ios-filled/100/thermometer.png" class="floating-icon">
-
 
 .glass-box {
     background: rgba(255, 255, 255, 0.15);
@@ -79,7 +62,47 @@ h1 {
     color: #ffffff;
 }
 </style>
-""", unsafe_allow_html=True)
+"""
+<style>
+.background-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background-icons img {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    opacity: 0.06;
+    filter: blur(1px);
+}
+
+.background-icons img:nth-child(1) { top: 10%; left: 5%; }
+.background-icons img:nth-child(2) { top: 30%; right: 10%; }
+.background-icons img:nth-child(3) { bottom: 20%; left: 15%; }
+.background-icons img:nth-child(4) { bottom: 10%; right: 5%; }
+.background-icons img:nth-child(5) { top: 50%; left: 50%; }
+.background-icons img:nth-child(6) { top: 40%; left: 80%; }
+.background-icons img:nth-child(7) { bottom: 40%; right: 30%; }
+.background-icons img:nth-child(8) { top: 20%; right: 40%; }
+</style>
+
+<div class="background-icons">
+  <img src="https://img.icons8.com/ios-filled/100/heart-with-pulse.png">
+  <img src="https://img.icons8.com/ios-filled/100/stethoscope.png">
+  <img src="https://img.icons8.com/ios-filled/100/pill.png">
+  <img src="https://img.icons8.com/ios-filled/100/medical-doctor.png">
+  <img src="https://img.icons8.com/ios-filled/100/first-aid-kit.png">
+  <img src="https://img.icons8.com/ios-filled/100/syringe.png">
+  <img src="https://img.icons8.com/ios-filled/100/dna.png">
+  <img src="https://img.icons8.com/ios-filled/100/thermometer.png">
+</div>
+, unsafe_allow_html=True)
 
 # Floating icons
 st.markdown("""

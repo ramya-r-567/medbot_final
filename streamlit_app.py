@@ -16,7 +16,7 @@ st.markdown("""
   <img src="https://img.icons8.com/ios-filled/100/dna.png">
   <img src="https://img.icons8.com/ios-filled/100/thermometer.png">
 </div>
-""", unsafe_allow_html=True
+""", unsafe_allow_html=True)
 import base64
 import joblib
 import numpy as np

@@ -1,8 +1,11 @@
 
 import streamlit as st
+# Load external CSS
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-    st.markdown("""
+
+# Add floating blurred medical icons to background
+st.markdown("""
 <div class="background-icons">
   <img src="https://img.icons8.com/ios-filled/100/heart-with-pulse.png">
   <img src="https://img.icons8.com/ios-filled/100/stethoscope.png">
@@ -13,7 +16,7 @@ with open("style.css") as f:
   <img src="https://img.icons8.com/ios-filled/100/dna.png">
   <img src="https://img.icons8.com/ios-filled/100/thermometer.png">
 </div>
-""", unsafe_allow_html=True)
+""", unsafe_allow_html=True
 import base64
 import joblib
 import numpy as np
